@@ -65,12 +65,12 @@ for symbol in symbols:
     except:
         symbols.remove(symbol)
 
-print len(symbols)
+#print len(symbols)
 
 
 #pick 40 random stocks to scrape for 5 years 
-sample_size = 40
-sample_symbols = random.sample(symbols, sample_size)
+#sample_size = 40
+#sample_symbols = random.sample(symbols, sample_size)
 
 #data to scrape
 data = {'Symbol' : [],
@@ -82,17 +82,20 @@ data = {'Symbol' : [],
         'Volume': []}
 
 #scrape the data
-for symbol in sample_symbols:
-    stock = Share(symbol)
-    tuples = stock.get_historical(startDate,endDate)
-    for row in tuples:
-        data['Symbol'].append(symbol)
-        data['Date'].append(datetime.strptime(row['Date'], '%Y-%m-%d'))
-        data['Open'].append(round(float(row['Open']),2))
-        data['High'].append(round(float(row['High']), 2))
-        data['Low'].append(round(float(row['Low']),2))
-        data['Close'].append(round(float(row['Close']),2))
-        data['Volume'].append(int(row['Volume']))
+for symbol in symbols:
+    try:
+        stock = Share(symbol)
+        tuples = stock.get_historical(startDate,endDate)
+        for row in tuples:
+            data['Symbol'].append(symbol)
+            data['Date'].append(datetime.strptime(row['Date'], '%Y-%m-%d'))
+            data['Open'].append(round(float(row['Open']),2))
+            data['High'].append(round(float(row['High']), 2))
+            data['Low'].append(round(float(row['Low']),2))
+            data['Close'].append(round(float(row['Close']),2))
+            data['Volume'].append(int(row['Volume']))
+    except:
+        pass
 
 #Build dataframe and export to csv and JSON
 df = pd.DataFrame(data, columns = ['Symbol', 'Date', 'Open', 'High', 'Low', 'Close', 'Volume'])
