@@ -1,101 +1,101 @@
-Symbol,Security,Sector,Industry
-III,3i,4.06,N/A
-ADN,Aberdeen Asset Management,3.14,N/A
-ADM,Admiral Group,4.91,N/A
-AAL,Anglo American plc,6.09,N/A
-ANTO,Antofagasta,4.71,N/A
-ARM,ARM Holdings,13.2,N/A
-AHT,Ashtead Group,4.26,N/A
-ABF,Associated British Foods,25.77,N/A
-AZN,AstraZeneca,51.23,N/A
-AV.,Aviva,17.69,N/A
-BAB,Babcock International,4.65,N/A
-BA.,BAE Systems,16.01,N/A
-BARC,Barclays,27.18,N/A
-BDEV,Barratt Developments,5.86,N/A
-BKG,Berkeley Group Holdings,4.60,N/A
-BLT,BHP Billiton,41.88,N/A
-BP.,BP,63.13,N/A
-BATS,British American Tobacco,71.4,N/A
-BLND,British Land,7.13,N/A
-BT.A,BT Group,45.61,N/A
-BNZL,Bunzl,6.38,N/A
-BRBY,Burberry,5.65,N/A
-CPI,Capita,7.38,N/A
-CCL,Carnival Corporation & plc,24.85,N/A
-CNA,Centrica,10.72,N/A
-CCH,Coca-Cola HBC AG,5.1,N/A
-CPG,Compass Group,20.21,N/A
-CRH,CRH plc,10.9,N/A
-DCC,DCC plc,5.03,N/A
-DGE,Diageo,46.01,N/A
-DLG,Direct Line Group,5.15,N/A
-DC.,Dixons Carphone,5.16,N/A
-EZJ,EasyJet,6.17,N/A
-EXPN,Experian,11.1,N/A
-FRES,Fresnillo plc,6.99,N/A
-GKN,GKN,4.79,N/A
-GSK,GlaxoSmithKline,67.38,N/A
-GLEN,Glencore,16.96,N/A
-HMSO,Hammerson,4.42,N/A
-HL.,Hargreaves Lansdown,5.87,N/A
-HIK,Hikma Pharmaceuticals,3.71,N/A
-HSBA,HSBC,88.11,N/A
-IMB,Imperial Brands,35.78,N/A
-ISAT,Inmarsat,4.47,N/A
-IHG,InterContinental Hotels Group,5.75,N/A
-IAG,International Consolidated Airlines Group SA,11.01,N/A
-ITRK,Intertek,4.67,N/A
-INTU,Intu Properties,3.89,N/A
-ITV,ITV plc,10.15,N/A
-JMAT,Johnson Matthey,4.79,N/A
-KGF,Kingfisher plc,7.8,N/A
-LAND,Land Securities,8.19,N/A
-LGEN,Legal & General,13.21,N/A
-LLOY,Lloyds Banking Group,44.11,N/A
-LSE,London Stock Exchange Group,8.06,N/A
-MKS,Marks & Spencer,7.01,N/A
-MERL,Merlin Entertainments,4.42,N/A
-MNDI,Mondi,6.37,N/A
-NG.,National Grid plc,36.14,N/A
-NXT,Next plc,6.9,N/A
-OML,Old Mutual,8.45,N/A
-PSON,Pearson PLC,6.52,N/A
-PSN,Persimmon plc,6.34,N/A
-PFG,Provident Financial,4.74,N/A
-PRU,Prudential plc,31.63,N/A
-RRS,Randgold Resources,5.89,N/A
-RB.,Reckitt Benckiser,46.32,N/A
-REL,RELX Group,25.54,N/A
-REX,Rexam,25.54,N/A
-RIO,Rio Tinto Group,34.84,N/A
-RR.,Rolls-Royce Holdings,11.8,N/A
-RBS,Royal Bank of Scotland Group,28.6,N/A
-RDSA,Royal Dutch Shell,160.12,N/A
-RMG,Royal Mail,4.41,N/A
-RSA,RSA Insurance Group,4.16,N/A
-SAB,SABMiller,67.32,N/A
-SGE,Sage Group,6.26,N/A
-SBRY,Sainsbury's,5.02,N/A
-SDR,Schroders,6.63,N/A
-SVT,Severn Trent,5.04,N/A
-SHP,Shire plc,22.52,N/A
-SKY,Sky plc,17.5,N/A
-SN.,Smith & Nephew,10.27,N/A
-SMIN,Smiths Group,3.84,N/A
-SPD,Sports Direct,2.4,N/A
-SSE,SSE plc,14.03,N/A
-STAN,Standard Chartered,13.52,N/A
-SL.,Standard Life,6.63,N/A
-STJ,St. James's Place plc,4.68,N/A
-TW.,Taylor Wimpey,5.99,N/A
-TSCO,Tesco,14.92,N/A
-TPK,Travis Perkins,4.46,N/A
-TUI,TUI Group,5.99,N/A
-ULVR,Unilever,90.42,N/A
-UU.,United Utilities,6.36,N/A
-VOD,Vodafone Group,56.55,N/A
-WTB,Whitbread,7.09,N/A
-WOS,Wolseley plc,9.20,N/A
-WPG,Worldpay,5.9,N/A
-WPP,WPP plc,19.01,N/A
+Symbol;Security;Sector;Industry
+III;3i;Private equity;
+ADN;Aberdeen Asset Management;Fund management;
+ADM;Admiral Group;Insurance;
+AAL;Anglo American plc;Mining;
+ANTO;Antofagasta;Mining;
+ARM;ARM Holdings;Engineering;
+AHT;Ashtead Group;Equipment rental;
+ABF;Associated British Foods;Food;
+AZN;AstraZeneca;Pharmaceuticals;
+AV.;Aviva;Insurance;
+BAB;Babcock International;Engineering;
+BA.;BAE Systems;Military;
+BARC;Barclays;Banking;
+BDEV;Barratt Developments;Building;
+BKG;Berkeley Group Holdings;Building;
+BLT;BHP Billiton;Mining;
+BP.;BP;Oil and gas;
+BATS;British American Tobacco;Tobacco;
+BLND;British Land;Property;
+BT.A;BT Group;Telecomms;
+BNZL;Bunzl;Industrial products;
+BRBY;Burberry;Fashion;
+CPI;Capita;Support Services;
+CCL;Carnival Corporation & plc;Leisure;
+CNA;Centrica;Energy;
+CCH;Coca-Cola HBC AG;Consumer;
+CPG;Compass Group;Food;
+CRH;CRH plc;Building materials;
+DCC;DCC plc;Investments;
+DGE;Diageo;Beverages;
+DLG;Direct Line Group;Insurance;
+DC.;Dixons Carphone;Retail;
+EZJ;EasyJet;Travel;
+EXPN;Experian;Information;
+FRES;Fresnillo plc;Mining;
+GKN;GKN;Manufacturing;
+GSK;GlaxoSmithKline;Pharmaceuticals;
+GLEN;Glencore;Mining;
+HMSO;Hammerson;Property;
+HL.;Hargreaves Lansdown;Finance;
+HIK;Hikma Pharmaceuticals;Manufacturing;
+HSBA;HSBC;Banking;
+IMB;Imperial Brands;Tobacco;
+ISAT;Inmarsat;Telecomms;
+IHG;InterContinental Hotels Group;Hotels;
+IAG;International Consolidated Airlines Group SA;Travel;
+ITRK;Intertek;Product testing;
+INTU;Intu Properties;Property;
+ITV;ITV plc;Media;
+JMAT;Johnson Matthey;Chemicals;
+KGF;Kingfisher plc;Retail homeware;
+LAND;Land Securities;Property;
+LGEN;Legal & General;Insurance;
+LLOY;Lloyds Banking Group;Banking;
+LSE;London Stock Exchange Group;Finance;
+MKS;Marks & Spencer;Retailer;
+MERL;Merlin Entertainments;Leisure;
+MNDI;Mondi;Manufacturing;
+NG.;National Grid plc;Energy;
+NXT;Next plc;Retail clothing;
+OML;Old Mutual;Insurance;
+PSON;Pearson PLC;Education;
+PSN;Persimmon plc;Building;
+PFG;Provident Financial;Finance;
+PRU;Prudential plc;Finance;
+RRS;Randgold Resources;Mining;
+RB.;Reckitt Benckiser;Consumer goods;
+REL;RELX Group;Publishing;
+REX;Rexam;Packaging;
+RIO;Rio Tinto Group;Mining;
+RR.;Rolls-Royce Holdings;Manufacturing;
+RBS;Royal Bank of Scotland Group;Banking;
+RDSA;Royal Dutch Shell;Oil and gas;
+RMG;Royal Mail;Delivery;
+RSA;RSA Insurance Group;Insurance;
+SAB;SABMiller;Beverages;
+SGE;Sage Group;IT;
+SBRY;Sainsbury's;Supermarket;
+SDR;Schroders;Fund management;
+SVT;Severn Trent;Water;
+SHP;Shire plc;Pharmaceuticals;
+SKY;Sky plc;Media;
+SN.;Smith & Nephew;Medical;
+SMIN;Smiths Group;Engineering;
+SPD;Sports Direct;Retail;
+SSE;SSE plc;Energy;
+STAN;Standard Chartered;Banking;
+SL.;Standard Life;Fund management;
+STJ;St. James's Place plc;Finance;
+TW.;Taylor Wimpey;Building;
+TSCO;Tesco;Supermarket;
+TPK;Travis Perkins;Retailer;
+TUI;TUI Group;Leisure;
+ULVR;Unilever;Consumer goods;
+UU.;United Utilities;Water;
+VOD;Vodafone Group;Telecomms;
+WTB;Whitbread;Retail hospitality;
+WOS;Wolseley plc;Building materials;
+WPG;Worldpay;Payment services;
+WPP;WPP plc;Media;
