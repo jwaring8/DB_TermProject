@@ -13,7 +13,7 @@ $username = 'root'; // change to your username
 $password = 'perfectmint299'; // change to your db password 
 
 
-//random test 
+//random test of everything we want to use.
 
 $db = new mysqli($servername, $username, $password, $dbname);
 
@@ -26,22 +26,15 @@ $query = "select * from sp500_quotes where date='2017-02-15'";
 if(!$result = $db->query($query)){
     die('There was an error running the query [' . $db->error . ']');
 }
-
 $rows = array();
-while($row = $result->fetch_assoc()){
+while($row = mysqli_fetch_assoc($result)){
   $rows[] =  $row;
-
 } // fetching all db rows
-//echo json_encode($rows);
-
 mysqli_close($db);
-
 echo '</br>';
-var_dump($rows);
 //write to json file
 $fp = fopen('stocks.json', 'w');
-fwrite($fp, json_encode($rows));
+fwrite($fp, json_encode($rows, JSON_PRETTY_PRINT));
 fclose($fp);
-
 ?>
         
