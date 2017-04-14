@@ -1,18 +1,25 @@
 
 -- List of queries to implement for Term Project
+-- QUERIES ABOUT OPEN:
+-- QUERIES ABOUT HIGH:
+-- QUERIES ABOUT LOW:
+-- QUERIES ABOUT CLOSE:
+-- QUERIES ABOUT VOLUME:
+-- QUERIES ABOUT SECTOR:
+-- QUERIES ABOUT INDUSTRY:
 
-     -- Query 1: Price of ticker for a specific date
+     -- Query: Price of ticker for a specific date
 
      	SELECT * FROM sp500_quotes
 	WHERE date='2015-1-04' AND ticker='AMD';
 
-     -- Query 2: Price of specific ticker for a date range
+     -- Query: Price of specific ticker for a date range
      	
 	SELECT * FROM sp500_quotes
 	WHERE ticker='AMD' AND
 	date BETWEEN '2012-4-10' AND '2013-4-10';
 
-     -- Query 3: Ticker within a price range (close) for a specific date
+     -- Query: Ticker within a price range (close) for a specific date
      	
 	SELECT s.date, s.close
 	FROM sp500_quotes AS s
@@ -20,7 +27,7 @@
 	      AND s.ticker='AMD';
 
 
-     -- Query 4: Tickers within price range (close) for a date range
+     -- Query: Tickers within price range (close) for a date range
 
      	SELECT s.ticker, s.date, s.close
 	FROM sp500_quotes AS s
@@ -28,26 +35,26 @@
 	      (s.date BETWEEN '2014-1-30' AND '2014-3-30');	
 
 
-     -- Query 5: Average open/close price of a ticker for date range
+     -- Query: Average open/close price of a ticker for date range
 
 
 
-     -- Query 6: Stocks with greatest change in price (close) for date range
+     -- Query: Stocks with greatest change in price (close) for date range
 
 
 
-     -- Query 7: The change in price for ticker for date range
+     -- Query: The change in price for ticker for date range
 
      	SELECT q.ticker, q.date, q.close - q.open AS delta
 	FROM sp500_quotes AS q
 	WHERE q.ticker='AMD' AND
 	      (q.date BETWEEN '2014-1-30' AND '2014-3-30');
 
-     -- Query 8: Show 10 companies within certain price range (close) for specific company
+     -- Query: Show 10 companies within certain price range (close) for specific company
 
 
 
-     -- Query 9: Show companies from same industry as selected ticker
+     -- Query: Show companies from same industry as selected ticker
 
      	SELECT * FROM sp500_stocks 
 	WHERE industry IN (
@@ -56,7 +63,7 @@
 	      GROUP BY industry
 	      );     	
 
-     -- Query 10: Show all companies from same sector as selected ticker
+     -- Query: Show all companies from same sector as selected ticker
 
      	SELECT * FROM sp500_stocks
 	WHERE sector IN (
@@ -65,13 +72,39 @@
 	      GROUP BY sector
 	      );
 
-     -- Query 11: Show top 5 companies per sector based on price (close) for date
+     -- Query: Show top 5 companies per sector based on price (close) for date
 
 	
 
 	
-     -- Query 12: Show the highest close price for specific ticker and year (All years)
+     -- Query: Show the average close price for specific ticker and year (All years)
      	
-     	      SELECT ticker, AVG(close), YEAR(date) FROM sp500_quotes
+	      SELECT ticker, AVG(close), YEAR(date) FROM sp500_quotes
 	      WHERE YEAR(date)='2014' AND ticker='AMD'
 	      GROUP BY YEAR(date);
+
+     -- Query: Show the highest close price for specific ticker and year (All years)
+
+	       SELECT q.ticker, MAX(q.close), YEAR(q.date) 'year'
+	       FROM sp500_quotes AS q
+	       GROUP BY q.ticker, YEAR(date);
+
+     -- Query: Average volume for ticker within daterange
+     
+	      SELECT ticker, AVG(volume) AS avg_Volume
+	      FROM sp500_quotes
+	      WHERE ticker='AMD' AND 
+	      	    date BETWEEN '2014-1-30' AND '2014-3-30'
+	      GROUP BY ticker;
+
+
+
+     -- Query: Change between price per year (close) for specific ticker
+     	      
+
+
+     -- Query: Average price ticker for daterange (close)
+
+
+
+     -- Query: Average price ticker for daterange (open)
