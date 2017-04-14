@@ -34,11 +34,6 @@
 	WHERE (s.close BETWEEN 40 AND 75) AND
 	      (s.date BETWEEN '2014-1-30' AND '2014-3-30');	
 
-
-     -- Query: Average open/close price of a ticker for date range
-
-
-
      -- Query: Stocks with greatest change in price (close) for date range
 
 
@@ -72,9 +67,13 @@
 	      GROUP BY sector
 	      );
 
-     -- Query: Show top 5 companies per sector based on price (close) for date
+     -- Query: Show top 5 companies based on price (close) for date
 
-	
+     	       SELECT s.ticker, s.company, q.close, q.date
+	       FROM sp500_stocks AS s, sp500_quotes AS q
+	       WHERE q.date='2014-1-30' AND s.ticker=q.ticker
+	       ORDER BY q.close DESC
+	       LIMIT 5;
 
 	
      -- Query: Show the average close price for specific ticker and year (All years)
@@ -89,6 +88,12 @@
 	       FROM sp500_quotes AS q
 	       GROUP BY q.ticker, YEAR(date);
 
+     -- Query: Change between price per year (close) for specific ticker
+     	       
+
+
+
+
      -- Query: Average volume for ticker within daterange
      
 	      SELECT ticker, AVG(volume) AS avg_Volume
@@ -97,14 +102,18 @@
 	      	    date BETWEEN '2014-1-30' AND '2014-3-30'
 	      GROUP BY ticker;
 
-
-
-     -- Query: Change between price per year (close) for specific ticker
-     	      
-
-
      -- Query: Average price ticker for daterange (close)
 
-
+     	       SELECT q.ticker, AVG(q.close) AS average
+	       FROM sp500_quotes AS q
+	       WHERE q.ticker='AMD' AND
+	       	     (date BETWEEN '2013-1-1' AND '2014-1-21')
+	       GROUP BY q.ticker;
 
      -- Query: Average price ticker for daterange (open)
+
+     	       SELECT q.ticker, AVG(q.open) AS average
+	       FROM sp500_quotes AS q
+	       WHERE q.ticker='AMD' AND
+	       	     (date BETWEEN '2013-1-1' AND '2014-1-21')
+	       GROUP BY q.ticker;
