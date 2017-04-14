@@ -36,7 +36,7 @@
 
      -- Query: Stocks with greatest change in price (close) for date range
 
-
+     	       
 
      -- Query: The change in price for ticker for date range
 
@@ -46,6 +46,7 @@
 	      (q.date BETWEEN '2014-1-30' AND '2014-3-30');
 
      -- Query: Show 10 companies within certain price range (close) for specific company
+     	       
 
 
 
@@ -90,8 +91,6 @@
 
      -- Query: Change between price per year (close) for specific ticker
      	       
-
-
 
 
      -- Query: Average volume for ticker within daterange
