@@ -21,7 +21,7 @@ if($db->connect_errno > 0){
     die('Unable to connect to database [' . $db->connect_error . ']');
 }           
 
-$query = "select * from sp500_quotes where date='2017-02-15'";
+$query = "select * from sp500_quotes where ticker='AMD' order by date asc;";
 
 if(!$result = $db->query($query)){
     die('There was an error running the query [' . $db->error . ']');
@@ -38,3 +38,6 @@ fwrite($fp, json_encode($rows, JSON_PRETTY_PRINT));
 fclose($fp);
 ?>
         
+
+
+    
