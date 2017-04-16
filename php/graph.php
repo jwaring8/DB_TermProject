@@ -29,8 +29,8 @@
         }
         ?>
         
-        <form name="selection" id="selection" method="POST">
-            <select id="select" name="ticker">
+<!--        <form name="selection" id="selection" method="POST">-->
+            <select id="select" name="ticker" onchange="myFunction(this.value)">
                 <option value="null"></option>
                 <?php
                     while($row = $result3->fetch_assoc()){
@@ -38,86 +38,25 @@
                     }
                 ?>
             </select>
+<!--
             <input type="submit" value="submit">
             </form>
-        
-
-        
-        <?php
-        if(isset($_POST['ticker']) && $_POST['ticker'] !== 'null'){
-            $name = $_POST['ticker'];
-            echo '<h2 style="text-align: center; text-decoration: underline">' .$name.'</h2>';
-            ?>
-            <?php
-            $query = "SELECT ticker, AVG(close) AS 'average closing price', YEAR(date) AS 'year' 
-                FROM sp500_quotes
-                WHERE ticker='". $name . "'
-                GROUP BY YEAR(date);";
-
-
-            if(!$result = $db->query($query)){
-                die('There was an error running the query [' . $db->error . ']');
-            }
-
-            if(!$result2 = $db->query($query)){
-                die('There was an error running the query [' . $db->error . ']');
-            }
-        }
-        else{
-            
-            echo 'No company selected!';
-        }
-        
-        ?>
-        <div id="chart"></div>
-        <!--
-                <button id='hide'>hide</button>
-                <button id='show'>show</button>
-
-        -->
-        
-
-
-        <script type='text/javascript'>
-            
-            var chart = c3.generate({
-                data: {
-                    x:'year',
-                    columns: [
-                        <?php 
-                        echo "['year'";
-                        while($row = $result->fetch_assoc()){
-                            echo ", " ."'" .$row['year']. "'";
-                        }
-                        echo "],";
-                        echo "['avg closing price for each year'";
-                        while($row = $result2->fetch_assoc()){
-                            echo ", " ."'" .$row['average closing price']. "'";
-                        }
-                        echo "]";
-                        ?> 
-                        
-                        //['year', '2012', '2013', '2014', '2015', '2016', '2017'],
-                        //['closing price', 300, 350, 300, 0, 0, 0],
-//                        ['data2', 700, 100, 140, 200, 150, 50],
-//                        ['data3', 300, 250, 140, 270, 74, 50]
-                    ],
-                }
-
+-->
+        <script>
+        function myFunction(selection){
+            $.post('graphingAJAXcall.php', {ticker:selection},
+                  function(data){
+                $('#result').html(data);
             });
-            
+        }
 
-
-//            var hider = document.getElementById('hide');
-//            hider.onclick = function() {
-//                    chart.hide(['data2', 'data3']);
-//            }
-//
-//            var shower = document.getElementById('show');
-//            shower.onclick = function() {
-//                    chart.show(['data2', 'data3']);
-//            }
+        
         </script>
+        <div id="result"></div>
+        
+        
+        
+ 
              	
 	
         
