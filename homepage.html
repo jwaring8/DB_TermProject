@@ -5,74 +5,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="buttons.css">
-    
-    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
-    
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-      
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-    #buttonArea {
-    
-        
-    }
-    button {
-      height: 200px;
-      width: 400px;
-    }
-      
-    #paragraphArea {
-      text-align: left;
-      margin-right: 10%;
-      margin-left: 10%;
-    }
-      #logo {
-          margin-top: 3px;
-          margin: auto;
-      }
-      #row{
-text-align: center;
-      }
-      
-      
-  </style>
+    <link rel="stylesheet" href="generalStyle.css">
 </head>
 <body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Stock Overflow</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      
-    </div>
-  </div>
-</nav>
 
 <div class="jumbotron">
   <div class="container text-center" id="logo">
@@ -162,17 +100,17 @@ text-align: center;
   <div class="row">
     <div class="col-sm-4">
         <form action="php/graph.php">
-            <button class="bttn-fill bttn-lg bttn-primary">Choose a ticker and graph!</button>
+            <button class="bttn-fill bttn-lg bttn-primary">Tickerish</button>
         </form>
     </div>
     <div class="col-sm-4"> 
         <form action="php/top5date.php">
-        <button class="bttn-fill bttn-lg bttn-warning">top5date.php</button>
+        <button class="bttn-fill bttn-lg bttn-warning">Top 5, Top 5, Top 5</button>
         </form>
     </div>
     <div class="col-sm-4"> 
       <form action="php/topFivePerSector.php">
-        <button class="bttn-fill bttn-lg bttn-danger">topFivePerSector</button>
+        <button class="bttn-fill bttn-lg bttn-danger">Top 5, Top 5, Top 5 ... per sector</button>
         </form>
     </div>
 
@@ -183,12 +121,12 @@ text-align: center;
   <div class="row">
     <div class="col-sm-6">
         <form action="php/pricerange.php">
-            <button class="bttn-fill bttn-lg bttn-success">pricerange</button>
+            <button class="bttn-fill bttn-lg bttn-success">Date-ta-Pricefy</button>
         </form>
     </div>
     <div class="col-sm-6"> 
       <form action="php/bargraph.php">
-        <button class="bttn-fill bttn-lg bttn-royal">bargraph</button>
+        <button class="bttn-fill bttn-lg bttn-royal">(Top 10 Closing Prices) Bargraphify</button>
         </form>
     </div>
 

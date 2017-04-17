@@ -17,49 +17,7 @@
 
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-          <style>
-
-            /* Remove the navbar's default margin-bottom and rounded borders */
-            .navbar {
-              margin-bottom: 0;
-              border-radius: 0;
-            }
-
-            /* Add a gray background color and some padding to the footer */
-            footer {
-              background-color: #f2f2f2;
-              padding: 25px;
-            }
-            #buttonArea {
-
-
-            }
-            button {
-              height: 200px;
-              width: 400px;
-            }
-
-            #paragraphArea {
-              text-align: left;
-              margin-right: 20%;
-              margin-left: 20%;
-            }
-              #logo {
-                  margin-top: 3px;
-                  margin: auto;
-              }
-              #row{
-                  text-align: center;
-              }
-              #tableData {
-                  padding: 10px;
-                  background-color: #f2f2f2;
-                  border-radius: 25px;
-                  margin: 15px;
-              }
-
-
-          </style>
+          <link rel="stylesheet" href="../generalStyle.css">
     </head>
     <body>
 
@@ -72,6 +30,7 @@
 
           </div>
         </div>
+        <div id="buttonArea">
         <div class="container-fluid bg-3 text-center">
               <h3>Top 5 Performing Companies (Per Sector):</h3><br>
               <div class="row" id="paragraphArea">
@@ -217,7 +176,7 @@
 
               </div>
             </div><br>
-
+            
 
 
 
@@ -228,13 +187,13 @@
                 <div class="col-sm-6">
 
                     <form action="top5date.php">
-                    <button class="bttn-fill bttn-lg bttn-warning">top5date.php</button>
+                    <button class="bttn-fill bttn-lg bttn-warning">Top 5, Top 5, Top 5</button>
                     </form>
                 </div>
                 <div class="col-sm-6">
 
                     <form action="graph.php">
-                        <button class="bttn-fill bttn-lg bttn-primary">Choose a ticker and graph!</button>
+                        <button class="bttn-fill bttn-lg bttn-primary">Tickerish</button>
                     </form>
                 </div>
 
@@ -247,17 +206,18 @@
 
                 <div class="col-sm-6">
                     <form action="pricerange.php">
-                        <button class="bttn-fill bttn-lg bttn-success">pricerange</button>
+                        <button class="bttn-fill bttn-lg bttn-success">Date-ta-Pricefy</button>
                     </form>
                 </div>
                 <div class="col-sm-6">
                     <form action="bargraph.php">
-                    <button class="bttn-fill bttn-lg bttn-royal">bargraph</button>
+                    <button class="bttn-fill bttn-lg bttn-royal">(Top 10 Closing Prices) Bargraphify</button>
                     </form>
                 </div>
 
               </div>
             </div><br><br>
+        </div>
             <footer class="container-fluid text-center">
               <p>StockOverFlow 2017</p>
             </footer>

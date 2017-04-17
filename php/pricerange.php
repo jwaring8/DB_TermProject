@@ -9,70 +9,17 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-
         <script type="text/javascript" src="../d3/d3.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
-        
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-          <style>
-
-            /* Remove the navbar's default margin-bottom and rounded borders */ 
-            .navbar {
-              margin-bottom: 0;
-              border-radius: 0;
-            }
-
-            /* Add a gray background color and some padding to the footer */
-            footer {
-              background-color: #f2f2f2;
-              padding: 25px;
-            }
-            #buttonArea {
-
-
-            }
-            button {
-              height: 200px;
-              width: 400px;
-            }
-
-            #paragraphArea {
-              text-align: left;
-              margin-right: 10%;
-              margin-left: 10%;
-            }
-              #logo {
-                  margin-top: 3px;
-                  margin: auto;
-              }
-              #row{
-                  text-align: center;
-              }
-              #tableData {
-                  padding: 50px;
-                  background-color: #f2f2f2;
-                  border-radius: 25px;
-                  margin: 15px;
-              }
-
-
-          </style>
+          <link rel="stylesheet" href="../generalStyle.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<!--        <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>-->
-<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<!--<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />-->
-<!--        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>-->
-<!--        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
- 
+        <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <!-- Include Date Range Picker -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-
- 
-
-
 <script type="text/javascript">
 $(function() {
     $('input[name="daterange"]').daterangepicker();
@@ -85,8 +32,6 @@ $(function() {
         minDate: '2010-12-31',
         maxDate: '2017-03-31'
     }
-//function(start, end, label) {
-//    alert("A new date range was chosen: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
 );
 });
 </script>
@@ -100,6 +45,7 @@ $(function() {
 
           </div>
         </div>
+        <div id="buttonArea">
         <div class="container-fluid bg-3 text-center">    
 <!--              <h3>The available dates you can search are 2010-12-31 to 2017-03-31!</h3><br>-->
               <div class="row" id="paragraphArea">
@@ -141,13 +87,13 @@ $(function() {
                 <div class="col-sm-6"> 
                   
                     <form action="graph.php">
-                        <button class="bttn-fill bttn-lg bttn-primary">Choose a ticker and graph!</button>
+                        <button class="bttn-fill bttn-lg bttn-primary">Tickerish</button>
                     </form>
                 </div>
                 <div class="col-sm-6"> 
                   
                     <form action="topFivePerSector.php">
-                        <button class="bttn-fill bttn-lg bttn-warning">topFivePerSector</button>
+                        <button class="bttn-fill bttn-lg bttn-warning">Top 5, Top 5, Top 5 ... per sector</button>
                     </form>
                 </div>
               </div>
@@ -158,17 +104,18 @@ $(function() {
                 
                 <div class="col-sm-6">
                     <form action="top5date.php">
-                        <button class="bttn-fill bttn-lg bttn-success">top5date</button>
+                        <button class="bttn-fill bttn-lg bttn-success">Top 5, Top 5, Top 5</button>
                     </form>
                 </div>
                 <div class="col-sm-6"> 
                     <form action="bargraph.php">
-                        <button class="bttn-fill bttn-lg bttn-royal">bargraph</button>
+                        <button class="bttn-fill bttn-lg bttn-royal">(Top 10 Closing Prices) Bargraphify</button>
                     </form>  
                 </div>
 
               </div>
             </div><br><br>
+        </div>
             <footer class="container-fluid text-center">
               <p>StockOverFlow 2017</p>
             </footer>
