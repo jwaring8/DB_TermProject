@@ -59,6 +59,16 @@
 
 
           </style>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>-->
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $( function() {
+               // $.datepicker.formatDate("ATOM");
+                $( "#datepicker" ).datepicker();
+                
+            } );
+  </script>
     </head>
     <body>
         
@@ -74,37 +84,20 @@
         <div id="buttonArea">
       
             <div class="container-fluid bg-3 text-center">    
-              <h3>Graph of AVG Closing, High, and Low Price of Company per Year:</h3><br>
+              <h3>The available dates you can search are 2010-12-31 to 2017-03-31!</h3><br>
               <div class="row" id="paragraphArea">
-                <?php 
-                include("shared.php");
-                $db = new mysqli($servername, $username, $password, $dbname);
-                if($db->connect_errno > 0){
-                    die('Unable to connect to database [' . $db->connect_error . ']');
-                }              
-                $query2 = "SELECT DISTINCT ticker from sp500_quotes
-                order by ticker;";
+                    <div>Date: <input type="text" id="datepicker" onchange="showDate(this.value)"></div>
+                    <script>
+                       // var date = $('#datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();
+                        $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+                        function showDate(value){
+                            $.post('barAJAXcall.php', {date:value},
+                                  function(data){
+                                $('#chart').html(data);
+                            }); 
+                        }
 
-                if(!$result3 = $db->query($query2)){
-                    die('There was an error running the query [' . $db->error . ']');
-                }
-                ?>
-                    <select id="select" name="ticker" onchange="myFunction(this.value)">
-                        <option value="null"></option>
-                        <?php
-                            while($row = $result3->fetch_assoc()){
-                                echo '<option value="' . $row['ticker'] . '">' . $row['ticker'] .'</option>';
-                            }
-                        ?>
-                    </select>
-                <script>
-                function myFunction(selection){
-                    $.post('graphingAJAXcall.php', {ticker:selection},
-                          function(data){
-                        $('#chart').html(data);
-                    });
-                }    
-                </script>
+                    </script>
                   <div id="outerChart"></div><div id="chart"></div></div>
                   
                   
@@ -150,8 +143,8 @@
                     </form>
                     </div>
                 <div class="col-sm-6"> 
-                  <form action="bargraph.php">
-                      <button class="bttn-fill bttn-lg bttn-royal">bargraph</button>
+                  <form action="graph.php">
+                        <button class="bttn-fill bttn-lg bttn-primary">Choose a ticker and graph!</button>
                     </form>
                 </div>
 

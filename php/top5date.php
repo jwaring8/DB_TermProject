@@ -151,8 +151,8 @@
                     </form>
                     </div>
                 <div class="col-sm-6"> 
-                    <form action=".php">
-                        <button class="bttn-fill bttn-lg bttn-royal">large</button>
+                    <form action="bargraph.php">
+                    <button class="bttn-fill bttn-lg bttn-royal">bargraph</button>
                     </form>
                 </div>
 

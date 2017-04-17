@@ -162,8 +162,9 @@ $(function() {
                     </form>
                 </div>
                 <div class="col-sm-6"> 
-                  
-                    <button class="bttn-fill bttn-lg bttn-royal">large</button>
+                    <form action="bargraph.php">
+                        <button class="bttn-fill bttn-lg bttn-royal">bargraph</button>
+                    </form>  
                 </div>
 
               </div>
