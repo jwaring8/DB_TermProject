@@ -19,7 +19,7 @@
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
           <style>
 
-            /* Remove the navbar's default margin-bottom and rounded borders */ 
+            /* Remove the navbar's default margin-bottom and rounded borders */
             .navbar {
               margin-bottom: 0;
               border-radius: 0;
@@ -62,9 +62,9 @@
           </style>
     </head>
     <body>
-        
-        
-        
+
+
+
         <div class="jumbotron">
           <div class="container text-center" id="logo">
 
@@ -72,13 +72,13 @@
 
           </div>
         </div>
-        <div class="container-fluid bg-3 text-center">    
+        <div class="container-fluid bg-3 text-center">
               <h3>Top 5 Performing Companies (Per Sector):</h3><br>
               <div class="row" id="paragraphArea">
 
                   <div id="tableData">
-                  
-                  
+
+
                     <?php
                     //establish a connection to the database
                     include 'shared.php';
@@ -86,36 +86,100 @@
                     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-                         //query being passed to the database 
-                         $sql = "SELECT ticker, company, `AVG(q.close)` AS 'Average Closing Price for 2017', sector
+                         //query being passed to the database
+                        /* $sql = "SELECT ticker, company, `AVG(q.close)` AS 'Average Closing Price for 2017', sector
                                 FROM(SELECT *,
                                     @sector_rank := IF(@current_sector = sector, @sector_rank + 1, 1) AS sector_rank,
-                                    @current_sector := sector 
+                                    @current_sector := sector
                                 FROM (SELECT q.ticker, AVG(q.close), s.sector, s.company
                                       FROM sp500_quotes as q JOIN sp500_stocks as s ON q.ticker=s.ticker
                                       WHERE YEAR(date) = 2017
                                       GROUP BY q.ticker) AS sub
                                 ORDER BY sector, `AVG(q.close)` + 0 DESC) AS ranked
-                                WHERE sector_rank <= 5;";
+                                WHERE sector_rank <= 5;";*/
+
+                        $sql = "(SELECT q.ticker, AVG(q.close), s.sector, s.company
+                            FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+                            WHERE YEAR(date) = 2017 AND s.sector = 'Consumer Discretionary'
+                            GROUP BY q.ticker
+                            ORDER BY AVG(q.close) DESC LIMIT 5)
+                            UNION
+                            (SELECT q.ticker, AVG(q.close), s.sector, s.company
+                            FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+                            WHERE YEAR(date) = 2017 AND s.sector = 'Consumer Staples'
+                            GROUP BY q.ticker
+                            ORDER BY AVG(q.close) DESC LIMIT 5)
+                            UNION
+                            (SELECT q.ticker, AVG(q.close), s.sector, s.company
+                            FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+                            WHERE YEAR(date) = 2017 AND s.sector = 'Energy'
+                            GROUP BY q.ticker
+                            ORDER BY AVG(q.close) DESC LIMIT 5)
+                        UNION
+                            (SELECT q.ticker, AVG(q.close), s.sector, s.company
+                            FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+                            WHERE YEAR(date) = 2017 AND s.sector = 'Financials'
+                            GROUP BY q.ticker
+                            ORDER BY AVG(q.close) DESC LIMIT 5)
+                            UNION
+                            (SELECT q.ticker, AVG(q.close), s.sector, s.company
+                            FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+                            WHERE YEAR(date) = 2017 AND s.sector = 'Health Care'
+                            GROUP BY q.ticker
+                            ORDER BY AVG(q.close) DESC LIMIT 5)
+                            UNION
+                            (SELECT q.ticker, AVG(q.close), s.sector, s.company
+                            FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+                            WHERE YEAR(date) = 2017 AND s.sector = 'Industrials'
+                            GROUP BY q.ticker
+                            ORDER BY AVG(q.close) DESC LIMIT 5)
+                            UNION
+                            (SELECT q.ticker, AVG(q.close), s.sector, s.company
+                            FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+                            WHERE YEAR(date) = 2017 AND s.sector = 'Information Technology'
+                            GROUP BY q.ticker
+                            ORDER BY AVG(q.close) DESC LIMIT 5)
+                            UNION
+                            (SELECT q.ticker, AVG(q.close), s.sector, s.company
+                            FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+                            WHERE YEAR(date) = 2017 AND s.sector = 'Materials'
+                            GROUP BY q.ticker
+                            ORDER BY AVG(q.close) DESC LIMIT 5)
+                            UNION
+                            (SELECT q.ticker, AVG(q.close), s.sector, s.company
+                            FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+                            WHERE YEAR(date) = 2017 AND s.sector = 'Real Estate'
+                            GROUP BY q.ticker
+                            ORDER BY AVG(q.close) DESC LIMIT 5)
+                            UNION
+                            (SELECT q.ticker, AVG(q.close), s.sector, s.company
+                            FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+                            WHERE YEAR(date) = 2017 AND s.sector = 'Telecommunication Services'
+                            GROUP BY q.ticker
+                            ORDER BY AVG(q.close) DESC LIMIT 5)
+                            UNION
+                            (SELECT q.ticker, AVG(q.close), s.sector, s.company
+                            FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+                            WHERE YEAR(date) = 2017 AND s.sector = 'Utilities'
+                            GROUP BY q.ticker
+                            ORDER BY AVG(q.close) DESC LIMIT 5)";
 
 
-                        //prepping the query and passing it to the database 
+                        //prepping the query and passing it to the database
                          $stmt = $conn->prepare($sql);
                          $stmt->execute();
                          $result = $stmt->setFetchMode(PDO::FETCH_NUM);
                          $numRows = $stmt->rowCount();
                          $numCols = $stmt->columnCount(); //get number of columns
 
-                         $fields = array_keys($stmt->fetch(PDO::FETCH_ASSOC)); // fill array with column names
+                         //$fields = array_keys($stmt->fetch(PDO::FETCH_ASSOC)); // fill array with column names
 
 
 
-                                //printing the results to the datbase 
+                                //printing the results to the datbase
                          if($numRows > 0){ // run if there are rows to be fetched. Otherwise, show no results
                             echo '<table>';
-                            for($z=0;$z<sizeof($fields);$z++){ // add headers for table
-                                echo '<th>' . $fields[$z] . '</th>';
-                            }
+                            echo '<th>ticker</th><th>avg closing price</th><th>sector</th><th>company</th>';
                             while($row = $stmt->fetch()){ // iterate through and put tuples into table
                                 echo '<tr>'; // beginning of row.
                             // output data of each row
@@ -124,69 +188,67 @@
                                 } // for
                                 echo '</tr>'; // end of row
                             } // while
-
-
                                 echo '</table>'; //
                             }
                             else{
                                 echo 'No results';
                             }
-                        } 
+                        }
 
-                        // error handling 
+                        // error handling
                         catch (PDOException $e) {
                                 die('Database connection failed: ' . $e->getMessage());
                             }
 
                     $conn = null;
                     ?>
-                  
-                  
+
+
                   </div>
-                  
-                  
-                  
-                  
-                  
-                  
-                  
+
+
+
+
+
+
+
               </div>
             </div><br>
-            
-            
-            
-            
-            
-            
-            <div class="container-fluid bg-3 text-center">    
+
+
+
+
+
+
+            <div class="container-fluid bg-3 text-center">
               <div class="row">
-                <div class="col-sm-6"> 
-                  
+                <div class="col-sm-6">
+
                     <form action="top5date.php">
                     <button class="bttn-fill bttn-lg bttn-warning">top5date.php</button>
                     </form>
                 </div>
-                <div class="col-sm-6"> 
-                  
+                <div class="col-sm-6">
+
                     <form action="graph.php">
                         <button class="bttn-fill bttn-lg bttn-primary">Choose a ticker and graph!</button>
                     </form>
                 </div>
-                
+
 
               </div>
-                
+
                 <br>
-                
+
                 <div class="row">
-                
+
                 <div class="col-sm-6">
                     <form action="pricerange.php">
                         <button class="bttn-fill bttn-lg bttn-success">pricerange</button>
                     </form>
                 </div>
-                <div class="col-sm-6"> 
-                  
+                <div class="col-sm-6">
+
                     <button class="bttn-fill bttn-lg bttn-royal">large</button>
                 </div>
 
@@ -196,9 +258,9 @@
               <p>StockOverFlow 2017</p>
             </footer>
         </div>
-        
-        
-        
-        
+
+
+
+
     </body>
 </html>
