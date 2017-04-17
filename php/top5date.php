@@ -1,25 +1,23 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Stock Graph</title>
-        <script type="text/javascript" src="../d3/d3.min.js"></script>
+        <title>Top 5 stocks for a date!</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </head>
     <body>
-        <h2 style="text-align: center">
-        Graph of AVG Closing Price of Company per Year
-        </h2>
+
         <?php 
         include("shared.php");
         $db = new mysqli($servername, $username, $password, $dbname);
         if($db->connect_errno > 0){
             die('Unable to connect to database [' . $db->connect_error . ']');
         }              
-        $query2 = "SELECT DISTINCT ticker from sp500_quotes
-        order by ticker;";
+        $query2 = "SELECT s.ticker, s.company, q.close, q.date
+	       FROM sp500_stocks AS s, sp500_quotes AS q
+	       WHERE q.date='2014-1-30' AND s.ticker=q.ticker
+	       ORDER BY q.close DESC
+	       LIMIT 5;";
         
         if(!$result3 = $db->query($query2)){
             die('There was an error running the query [' . $db->error . ']');

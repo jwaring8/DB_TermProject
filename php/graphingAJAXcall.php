@@ -29,9 +29,8 @@
             echo 'No company selected!';
         }?>
 <?php
-        
 echo <<<EOT
-        <div id="chart"></div>
+        
         <script type='text/javascript'>
             
             var chart = c3.generate({
@@ -41,18 +40,18 @@ echo <<<EOT
 
 EOT;
 ?>
-                        <?php 
-                        echo "['year'";
-                        while($row = $result->fetch_assoc()){
-                            echo ", " ."'" .$row['year']. "'";
-                        }
-                        echo "],";
-                        echo "['avg closing price for each year'";
-                        while($row = $result2->fetch_assoc()){
-                            echo ", " ."'" .$row['average closing price']. "'";
-                        }
-                        echo "]";
-                        ?> 
+        <?php 
+        echo "['year'";
+        while($row = $result->fetch_assoc()){
+            echo ", " ."'" .$row['year']. "'";
+        }
+        echo "],";
+        echo "['avg closing price for each year'";
+        while($row = $result2->fetch_assoc()){
+            echo ", " ."'" .$row['average closing price']. "'";
+        }
+        echo "]";
+        ?> 
 <?php
 echo <<<EOT
                 ],
