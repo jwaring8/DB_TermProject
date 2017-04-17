@@ -118,7 +118,6 @@
 		  GROUP BY q.ticker) AS sub
 	ORDER BY sector, `AVG(q.close)`+0 DESC) AS ranked
     WHERE sector_rank <= 5;
-<<<<<<< HEAD
     
     (SELECT q.ticker, AVG(q.close), s.sector, s.company 
     FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
@@ -235,7 +234,14 @@ UNION
 	SELECT s.ticker, s.date, s.close
 	FROM sp500_quotes AS s
 	WHERE (s.close BETWEEN 40 AND 75) AND
-	      (s.date BETWEEN '2014-1-30' AND '2014-3-30');	
+	      (s.date BETWEEN '2014-1-30' AND '2014-3-30');
+          
+	-- Modified Query: Select distinct ticker within price range for a date range
+    SELECT s.ticker, AVG(s.close) AS 'Average Price Across Date Range"
+    FROM sp500_quotes AS s
+    WHERE (s.close BETWEEN 100 AND 200) AND
+	      (s.date BETWEEN '2014-1-30' AND '2014-3-30')
+	GROUP BY s.ticker;
 
      -- Query: Show 10 companies within certain price range (close) for specific company
 		
