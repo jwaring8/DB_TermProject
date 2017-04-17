@@ -9,6 +9,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
           <link rel="stylesheet" href="../buttons.css">
+        <link rel="stylesheet" href="../tableModel.css">
 
 
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -135,7 +136,7 @@
                 <div class="col-sm-6"> 
                   
                     <form action="topFivePerSector.php">
-                        <button class="bttn-fill bttn-lg bttn-primary">topFivePerSector</button>
+                        <button class="bttn-fill bttn-lg bttn-danger">topFivePerSector</button>
                     </form>
                 </div>
                 

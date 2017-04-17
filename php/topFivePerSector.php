@@ -9,6 +9,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
           <link rel="stylesheet" href="../buttons.css">
+        <link rel="stylesheet" href="../tableModel.css">
 
 
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -40,8 +41,8 @@
 
             #paragraphArea {
               text-align: left;
-              margin-right: 10%;
-              margin-left: 10%;
+              margin-right: 20%;
+              margin-left: 20%;
             }
               #logo {
                   margin-top: 3px;
@@ -51,7 +52,7 @@
                   text-align: center;
               }
               #tableData {
-                  padding: 50px;
+                  padding: 10px;
                   background-color: #f2f2f2;
                   border-radius: 25px;
                   margin: 15px;
@@ -83,9 +84,6 @@
                     include 'shared.php';
                     try {$conn = new PDO("mysql:host=" . $servername . ";dbname=" . $dbname, $username, $password);
                     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-                         $table1 = $_GET["table1"];
-                         $table2 = $_GET["table2"];
 
 
                          //query being passed to the database 
