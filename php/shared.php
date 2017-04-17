@@ -8,7 +8,7 @@
 $servername = 'localhost:3306'; // change to your correct localhost port number
 $dbname = 'TermProj'; // change to your database name
 $username = 'root'; // change to your username
-$password = 'perfectmint299'; // change to your db password 
+$password = 'root'; // change to your db password 
 
 
 //connection code
