@@ -118,6 +118,73 @@
 		  GROUP BY q.ticker) AS sub
 	ORDER BY sector, `AVG(q.close)`+0 DESC) AS ranked
     WHERE sector_rank <= 5;
+    
+    (SELECT q.ticker, AVG(q.close), s.sector, s.company 
+    FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+    WHERE YEAR(date) = 2017 AND s.sector = 'Consumer Discretionary'
+    GROUP BY q.ticker
+    ORDER BY AVG(q.close) DESC LIMIT 5)
+    UNION
+    (SELECT q.ticker, AVG(q.close), s.sector, s.company 
+    FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+    WHERE YEAR(date) = 2017 AND s.sector = 'Consumer Staples'
+    GROUP BY q.ticker
+    ORDER BY AVG(q.close) DESC LIMIT 5)
+    UNION
+    (SELECT q.ticker, AVG(q.close), s.sector, s.company 
+    FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+    WHERE YEAR(date) = 2017 AND s.sector = 'Energy'
+    GROUP BY q.ticker
+    ORDER BY AVG(q.close) DESC LIMIT 5)
+UNION
+    (SELECT q.ticker, AVG(q.close), s.sector, s.company 
+    FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+    WHERE YEAR(date) = 2017 AND s.sector = 'Financials'
+    GROUP BY q.ticker
+    ORDER BY AVG(q.close) DESC LIMIT 5)
+    UNION
+    (SELECT q.ticker, AVG(q.close), s.sector, s.company 
+    FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+    WHERE YEAR(date) = 2017 AND s.sector = 'Health Care'
+    GROUP BY q.ticker
+    ORDER BY AVG(q.close) DESC LIMIT 5)
+    UNION
+    (SELECT q.ticker, AVG(q.close), s.sector, s.company 
+    FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+    WHERE YEAR(date) = 2017 AND s.sector = 'Industrials'
+    GROUP BY q.ticker
+    ORDER BY AVG(q.close) DESC LIMIT 5)
+    UNION
+    (SELECT q.ticker, AVG(q.close), s.sector, s.company 
+    FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+    WHERE YEAR(date) = 2017 AND s.sector = 'Information Technology'
+    GROUP BY q.ticker
+    ORDER BY AVG(q.close) DESC LIMIT 5)
+    UNION
+    (SELECT q.ticker, AVG(q.close), s.sector, s.company 
+    FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+    WHERE YEAR(date) = 2017 AND s.sector = 'Materials'
+    GROUP BY q.ticker
+    ORDER BY AVG(q.close) DESC LIMIT 5)
+    UNION
+    (SELECT q.ticker, AVG(q.close), s.sector, s.company 
+    FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+    WHERE YEAR(date) = 2017 AND s.sector = 'Real Estate'
+    GROUP BY q.ticker
+    ORDER BY AVG(q.close) DESC LIMIT 5)
+    UNION
+    (SELECT q.ticker, AVG(q.close), s.sector, s.company 
+    FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+    WHERE YEAR(date) = 2017 AND s.sector = 'Telecommunication Services'
+    GROUP BY q.ticker
+    ORDER BY AVG(q.close) DESC LIMIT 5)
+    UNION
+    (SELECT q.ticker, AVG(q.close), s.sector, s.company 
+    FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+    WHERE YEAR(date) = 2017 AND s.sector = 'Utilities'
+    GROUP BY q.ticker
+    ORDER BY AVG(q.close) DESC LIMIT 5)
+=======
 
     -- Query: Show the average volume for each sector on specific date
 	
@@ -127,6 +194,7 @@
 	GROUP BY s.sector;
 
 
+>>>>>>> efd1161a35d54a0838a8d96bdc3a8473d3ec9f67
 -----------------------------------------------------------------------------------------------------------
 
 -- QUERIES DEALING WITH COMPARISON BETWEEN COMPANIES:
@@ -166,7 +234,14 @@
 	SELECT s.ticker, s.date, s.close
 	FROM sp500_quotes AS s
 	WHERE (s.close BETWEEN 40 AND 75) AND
-	      (s.date BETWEEN '2014-1-30' AND '2014-3-30');	
+	      (s.date BETWEEN '2014-1-30' AND '2014-3-30');
+          
+	-- Modified Query: Select distinct ticker within price range for a date range
+    SELECT s.ticker, AVG(s.close) AS 'Average Price Across Date Range"
+    FROM sp500_quotes AS s
+    WHERE (s.close BETWEEN 100 AND 200) AND
+	      (s.date BETWEEN '2014-1-30' AND '2014-3-30')
+	GROUP BY s.ticker;
 
      -- Query: Show 10 companies within certain price range (close) for specific company
 		
