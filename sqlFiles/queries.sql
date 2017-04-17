@@ -105,6 +105,11 @@
 		   WHERE q.ticker = 'MMM'
 		   GROUP BY YEAR(q.date)) AS q2)
 		WHERE YEAR(q1.date) = YEAR(q2.date);
+
+     -- Query: Top 5 best performing companies per sector for year 2017
+	
+
+
 -----------------------------------------------------------------------------------------------------------
 
 -- QUERIES DEALING WITH COMPARISON BETWEEN COMPANIES:
@@ -158,6 +163,13 @@
 					(SELECT q.close + (q.close * 0.05)
 					 FROM sp500_quotes AS q
 					 WHERE q.ticker = 'MMM' AND q.date = '2014-4-1');
+
+	-- Query: Show tickers within price range for year (per year)
+		SELECT s.ticker, YEAR(s.date), s.close
+		FROM sp500_quotes AS s
+		WHERE (s.close BETWEEN 40 AND 75)
+		GROUP BY YEAR(s.date);
+		
 
 -----------------------------------------------------------------------------------------------------------
 
