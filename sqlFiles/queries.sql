@@ -194,3 +194,10 @@
 
 	
 
+SELECT q.ticker, s.company, AVG(q.close), s.sector, YEAR(q.date)
+ FROM sp500_quotes AS q, sp500_stocks AS s
+WHERE YEAR(q.date)='2017' AND s.sector='Information Technology'
+      AND q.ticker=s.ticker
+GROUP BY q.ticker, s.sector, YEAR(q.date)
+ORDER BY AVG(q.close) DESC
+LIMIT 5;
