@@ -147,7 +147,7 @@ $(function() {
                 <div class="col-sm-6"> 
                   
                     <form action="topFivePerSector.php">
-                        <button class="bttn-fill bttn-lg bttn-primary">topFivePerSector</button>
+                        <button class="bttn-fill bttn-lg bttn-warning">topFivePerSector</button>
                     </form>
                 </div>
               </div>
