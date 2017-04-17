@@ -146,13 +146,14 @@
                 <div class="row">
                 
                 <div class="col-sm-6">
-                  
                     <form action="pricerange.php">
                         <button class="bttn-fill bttn-lg bttn-success">pricerange</button>
                     </form>
+                    </div>
                 <div class="col-sm-6"> 
-                  
-                    <button class="bttn-fill bttn-lg bttn-royal">large</button>
+                    <form action=".php">
+                        <button class="bttn-fill bttn-lg bttn-royal">large</button>
+                    </form>
                 </div>
 
               </div>

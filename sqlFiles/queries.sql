@@ -118,6 +118,7 @@
 		  GROUP BY q.ticker) AS sub
 	ORDER BY sector, `AVG(q.close)`+0 DESC) AS ranked
     WHERE sector_rank <= 5;
+<<<<<<< HEAD
     
     (SELECT q.ticker, AVG(q.close), s.sector, s.company 
     FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
@@ -184,6 +185,17 @@ UNION
     WHERE YEAR(date) = 2017 AND s.sector = 'Utilities'
     GROUP BY q.ticker
     ORDER BY AVG(q.close) DESC LIMIT 5)
+=======
+
+    -- Query: Show the average volume for each sector on specific date
+	
+	SELECT q.date 'Date', s.sector 'Sector', ROUND(AVG(q.volume), 2) 'Average Sector Volume'
+	FROM sp500_quotes AS q, sp500_stocks AS s
+	WHERE q.ticker=s.ticker AND q.date='2016-3-30'
+	GROUP BY s.sector;
+
+
+>>>>>>> efd1161a35d54a0838a8d96bdc3a8473d3ec9f67
 -----------------------------------------------------------------------------------------------------------
 
 -- QUERIES DEALING WITH COMPARISON BETWEEN COMPANIES:
@@ -246,9 +258,15 @@ UNION
     -----------------------------------------------------------------------------------------------------------
 
 
-
-
+        
 
 
 	
 
+SELECT q.ticker, s.company, AVG(q.close), s.sector, YEAR(q.date)
+ FROM sp500_quotes AS q, sp500_stocks AS s
+WHERE YEAR(q.date)='2017' AND s.sector='Information Technology'
+      AND q.ticker=s.ticker
+GROUP BY q.ticker, s.sector, YEAR(q.date)
+ORDER BY AVG(q.close) DESC
+LIMIT 5;

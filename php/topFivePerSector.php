@@ -87,7 +87,16 @@
 
 
                          //query being passed to the database 
-                         $sql = "SELECT * FROM sp500_quotes LIMIT 100;";
+                         $sql = "SELECT ticker, company, `AVG(q.close)` AS 'Average Closing Price for 2017', sector
+                                FROM(SELECT *,
+                                    @sector_rank := IF(@current_sector = sector, @sector_rank + 1, 1) AS sector_rank,
+                                    @current_sector := sector 
+                                FROM (SELECT q.ticker, AVG(q.close), s.sector, s.company
+                                      FROM sp500_quotes as q JOIN sp500_stocks as s ON q.ticker=s.ticker
+                                      WHERE YEAR(date) = 2017
+                                      GROUP BY q.ticker) AS sub
+                                ORDER BY sector, `AVG(q.close)` + 0 DESC) AS ranked
+                                WHERE sector_rank <= 5;";
 
 
                         //prepping the query and passing it to the database 
