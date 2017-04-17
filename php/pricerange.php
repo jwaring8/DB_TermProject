@@ -2,21 +2,20 @@
 <html>
     <head>
         <title>Stock Overflow</title>
-        <script type="text/javascript" src="../d3/d3.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
           <link rel="stylesheet" href="../buttons.css">
         <link rel="stylesheet" href="../tableModel.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 
-
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../d3/d3.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
           <style>
 
             /* Remove the navbar's default margin-bottom and rounded borders */ 
@@ -60,19 +59,17 @@
 
 
           </style>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<!--  <link rel="stylesheet" href="/resources/demos/style.css">-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<!--        <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>-->
 <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+<!--<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />-->
 <!--        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>-->
-        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<!--        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
  
 <!-- Include Date Range Picker -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
  
 
 
@@ -110,11 +107,11 @@ $(function() {
                         <div id="datarange">Date: <input type="text" name="daterange" /></div>
                     <div data-role="main" class="ui-content">
                         <p>The min price is 0 and max price is 10000!</p>
-                        <div data-role="rangeslider" style="display:inline">
+                        <div style="display:inline">
                             <label for="price-min">Price-min:</label>
-                            <input type="range" name="price-min" id="price-min" value="200" min="0" max="10000">
+                            <input type="text" name="price-min" id="price-min" value="200" min="0" max="10000">
                             <label for="price-max">Price-max:</label>
-                            <input type="range" name="price-max" id="price-max" value="800" min="0" max="10000">
+                            <input type="text" name="price-max" id="price-max" value="800" min="0" max="10000">
                         </div>
                         </div>
                     <input type="submit" data-inline="true" value="Submit">
@@ -160,8 +157,9 @@ $(function() {
                 <div class="row">
                 
                 <div class="col-sm-6">
-                  
-                    <button class="bttn-fill bttn-lg bttn-success">large</button>
+                    <form action="top5date.php">
+                        <button class="bttn-fill bttn-lg bttn-success">top5date</button>
+                    </form>
                 </div>
                 <div class="col-sm-6"> 
                   

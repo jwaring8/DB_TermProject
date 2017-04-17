@@ -2,20 +2,19 @@
 <html>
     <head>
         <title>Stock Overflow</title>
-        <script type="text/javascript" src="../d3/d3.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-          <link rel="stylesheet" href="../buttons.css">
+        <link rel="stylesheet" href="../buttons.css">
         <link rel="stylesheet" href="../tableModel.css">
 
 
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css" rel="stylesheet" />
 
-
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script type="text/javascript" src="../d3/d3.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
           <style>
 
@@ -61,8 +60,7 @@
 
           </style>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<!--  <link rel="stylesheet" href="/resources/demos/style.css">-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>-->
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script>
             $( function() {
@@ -149,8 +147,9 @@
                 
                 <div class="col-sm-6">
                   
-                    <button class="bttn-fill bttn-lg bttn-success">large</button>
-                </div>
+                    <form action="pricerange.php">
+                        <button class="bttn-fill bttn-lg bttn-success">pricerange</button>
+                    </form>
                 <div class="col-sm-6"> 
                   
                     <button class="bttn-fill bttn-lg bttn-royal">large</button>

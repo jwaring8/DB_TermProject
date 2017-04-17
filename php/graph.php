@@ -145,8 +145,9 @@
                 
                 <div class="col-sm-6">
                   
-                    <button class="bttn-fill bttn-lg bttn-success">large</button>
-                </div>
+                    <form action="pricerange.php">
+                        <button class="bttn-fill bttn-lg bttn-success">pricerange</button>
+                    </form>
                 <div class="col-sm-6"> 
                   
                     <button class="bttn-fill bttn-lg bttn-royal">large</button>

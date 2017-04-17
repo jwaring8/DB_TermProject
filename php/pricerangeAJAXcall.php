@@ -1,5 +1,6 @@
 <?php
-    if($_POST['daterange']!==null & $_POST['price-min']>=0 & $_POST['price-max']<=10000){
+    if($_POST['daterange']!==null & $_POST['price-min']>=0 & $_POST['price-max']<=10000 & 
+       is_numeric($_POST['price-min']) & is_numeric($_POST['price-max'])){
         $daterange = $_POST['daterange'];
         $date1 = substr($daterange, 0, 10);
         $date2 = substr($daterange, 12);
