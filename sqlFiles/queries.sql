@@ -85,13 +85,13 @@
 	      );     	
 
      -- Query: Show all companies from same sector as selected ticker
-
 	SELECT * FROM sp500_stocks
 	WHERE sector IN (
 	      SELECT sector FROM sp500_stocks
 	      WHERE ticker='AMD'
 	      GROUP BY sector
 	      );
+
 
      -- Query: Change between price per year (close) for specific ticker
 		
@@ -277,3 +277,5 @@ WHERE YEAR(q.date)='2017' AND s.sector='Information Technology'
 GROUP BY q.ticker, s.sector, YEAR(q.date)
 ORDER BY AVG(q.close) DESC
 LIMIT 5;
+
+
