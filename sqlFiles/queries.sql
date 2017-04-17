@@ -107,8 +107,17 @@
 		WHERE YEAR(q1.date) = YEAR(q2.date);
 
      -- Query: Top 5 best performing companies per sector for year 2017
-	
-
+    
+    SELECT ticker, company, `AVG(q.close)` AS 'Average Closing Price for 2017', sector
+    FROM(SELECT *,
+		@sector_rank := IF(@current_sector = sector, @sector_rank + 1, 1) AS sector_rank,
+		@current_sector := sector 
+    FROM (SELECT q.ticker, AVG(q.close), s.sector, s.company
+		  FROM sp500_quotes as q JOIN sp500_stocks as s ON q.ticker=s.ticker
+		  WHERE YEAR(date) = 2017
+		  GROUP BY q.ticker) AS sub
+	ORDER BY sector, `AVG(q.close)`+0 DESC) AS ranked
+    WHERE sector_rank <= 5;
 
 -----------------------------------------------------------------------------------------------------------
 
@@ -169,9 +178,7 @@
 		FROM sp500_quotes AS s
 		WHERE (s.close BETWEEN 40 AND 75)
 		GROUP BY YEAR(s.date);
-		
-
------------------------------------------------------------------------------------------------------------
+    -----------------------------------------------------------------------------------------------------------
 
 
 
