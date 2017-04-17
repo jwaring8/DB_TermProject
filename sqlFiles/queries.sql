@@ -119,6 +119,14 @@
 	ORDER BY sector, `AVG(q.close)`+0 DESC) AS ranked
     WHERE sector_rank <= 5;
 
+    -- Query: Show the average volume for each sector on specific date
+	
+	SELECT q.date 'Date', s.sector 'Sector', ROUND(AVG(q.volume), 2) 'Average Sector Volume'
+	FROM sp500_quotes AS q, sp500_stocks AS s
+	WHERE q.ticker=s.ticker AND q.date='2016-3-30'
+	GROUP BY s.sector;
+
+
 -----------------------------------------------------------------------------------------------------------
 
 -- QUERIES DEALING WITH COMPARISON BETWEEN COMPANIES:
@@ -181,8 +189,7 @@
     -----------------------------------------------------------------------------------------------------------
 
 
-
-
+        
 
 
 	
