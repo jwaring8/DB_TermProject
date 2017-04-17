@@ -19,15 +19,14 @@
         if($row_count < 1){
             echo '<h2>No data for this date!</h2>';
         } else{
-            echo '<table>';
-            echo '<caption>Top 5 company closing prices for a day!</caption>';
-            echo '<th>ticker</th><th>company</th><th>close</th><th>date</th>';
+            echo '<table id="companies">';
+            echo '<caption>Top 5 company closing prices for ' . $date .'!</caption>';
+            echo '<th>ticker</th><th>company</th><th>close</th>';
             while($row = $result->fetch_assoc()){
                 echo '<tr>';
                 echo '<td>' . $row['ticker'] .
                     '</td><td>' . $row['company'] .
-                    '</td><td>' . $row['close'] .
-                    '</td><td>' . $row['date'] . '</tr>';       
+                    '</td><td>' . $row['close'] . '</tr>';       
             }
         }
     }
