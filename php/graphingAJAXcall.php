@@ -10,10 +10,10 @@
         if($db->connect_errno > 0){
             die('Unable to connect to database [' . $db->connect_error . ']');
         }    
-            $query = "SELECT ticker, AVG(close) AS 'average closing price', YEAR(date) AS 'year' 
-                FROM sp500_quotes
-                WHERE ticker='". $name . "'
-                GROUP BY YEAR(date);";
+            $query = "SELECT ticker, ROUND(AVG(close),2) AS 'average closing price', YEAR(date) AS 'year' 
+	FROM sp500_quotes
+	WHERE ticker='".$name ."'
+	GROUP BY YEAR(date);";
 
 
             if(!$result = $db->query($query)){
