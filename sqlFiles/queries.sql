@@ -17,9 +17,31 @@
 	WHERE q.ticker='AMD' AND
 	      (q.date BETWEEN '2014-1-30' AND '2014-3-30');
 
+     -- Query: Show the average high for specific ticker per year
+
+     	SELECT ticker, ROUND(AVG(high),2) AS 'average high', YEAR(date) AS 'year'
+        FROM sp500_quotes
+        WHERE ticker='AMD'
+	GROUP BY YEAR(date);
+
+     -- Query: Show the average low for specific ticker per year
+
+	SELECT ticker, ROUND(AVG(low),2) AS 'average low', YEAR(date) AS 'year' 
+	FROM sp500_quotes
+	WHERE ticker='AMD'
+	GROUP BY YEAR(date);
+
+     -- Query: Show the average volume for specific ticker per year
+
+	SELECT ticker, ROUND(AVG(volume),2) AS 'average volume', YEAR(date) AS 'year' 
+	FROM sp500_quotes
+	WHERE ticker='AMD'
+	GROUP BY YEAR(date);
+
+
      -- Query: Show the average close price for specific ticker and year (All years)
      	
-	SELECT ticker, AVG(close) AS 'average closing price', YEAR(date) AS 'year' 
+	SELECT ticker, ROUND(AVG(close),2) AS 'average closing price', YEAR(date) AS 'year' 
 	FROM sp500_quotes
 	WHERE ticker='AMD'
 	GROUP BY YEAR(date);
