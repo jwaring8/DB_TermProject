@@ -15,7 +15,7 @@
   </script>
     </head>
     <body>
-        <h2>The available dates you can search are 2010-12-31 to 2017-03-31!</h2>
+        <h2 style="text-align: center">The available dates you can search are 2010-12-31 to 2017-03-31!</h2>
         <div>Date: <input type="text" id="datepicker" onchange="showDate(this.value)"></div>
         <script>
            // var date = $('#datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();

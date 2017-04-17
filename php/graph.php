@@ -74,7 +74,7 @@
         <div id="buttonArea">
       
             <div class="container-fluid bg-3 text-center">    
-              <h3>Graph of AVG Closing Price of Company per Year:</h3><br>
+              <h3>Graph of AVG Closing, High, and Low Price of Company per Year:</h3><br>
               <div class="row" id="paragraphArea">
                 <?php 
                 include("shared.php");
