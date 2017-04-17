@@ -59,17 +59,6 @@
 
 
           </style>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<!--  <link rel="stylesheet" href="/resources/demos/style.css">-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script>
-            $( function() {
-               // $.datepicker.formatDate("ATOM");
-                $( "#datepicker" ).datepicker();
-                
-            } );
-  </script>
     </head>
     <body>
         
@@ -83,32 +72,70 @@
           </div>
         </div>
         <div class="container-fluid bg-3 text-center">    
-              <h3>The available dates you can search are 2010-12-31 to 2017-03-31!</h3><br>
+              <h3>Top 5 Performing Companies (Per Sector):</h3><br>
               <div class="row" id="paragraphArea">
-                    <div>Date: <input type="text" id="datepicker" onchange="showDate(this.value)"></div>
-                    <script>
-                       // var date = $('#datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();
-                        $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
-                        function showDate(value){
-                            $.post('top5dateAJAXcall.php', {date:value},
-                                  function(data){
-                                $('#table').html(data);
-                            }); 
-                        }
 
-                    </script>
-                  <div id="tableData"><div id="table"></div></div>  
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
+                  <div id="tableData">
                   
                   
+                    <?php
+                    //establish a connection to the database
+                    include 'shared.php';
+                    try {$conn = new PDO("mysql:host=" . $servername . ";dbname=" . $dbname, $username, $password);
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                         $table1 = $_GET["table1"];
+                         $table2 = $_GET["table2"];
+
+
+                         //query being passed to the database 
+                         $sql = "SELECT * FROM sp500_quotes LIMIT 100;";
+
+
+                        //prepping the query and passing it to the database 
+                         $stmt = $conn->prepare($sql);
+                         $stmt->execute();
+                         $result = $stmt->setFetchMode(PDO::FETCH_NUM);
+                         $numRows = $stmt->rowCount();
+                         $numCols = $stmt->columnCount(); //get number of columns
+
+                         $fields = array_keys($stmt->fetch(PDO::FETCH_ASSOC)); // fill array with column names
+
+
+
+                                //printing the results to the datbase 
+                         if($numRows > 0){ // run if there are rows to be fetched. Otherwise, show no results
+                            echo '<table>';
+                            for($z=0;$z<sizeof($fields);$z++){ // add headers for table
+                                echo '<th>' . $fields[$z] . '</th>';
+                            }
+                            while($row = $stmt->fetch()){ // iterate through and put tuples into table
+                                echo '<tr>'; // beginning of row.
+                            // output data of each row
+                                for($i=0;$i<$numCols;$i++){ // putting table data in each row.
+                                    echo '<td>' . $row[$i] . '</td>';
+                                } // for
+                                echo '</tr>'; // end of row
+                            } // while
+
+
+                                echo '</table>'; //
+                            }
+                            else{
+                                echo 'No results';
+                            }
+                        } 
+
+                        // error handling 
+                        catch (PDOException $e) {
+                                die('Database connection failed: ' . $e->getMessage());
+                            }
+
+                    $conn = null;
+                    ?>
                   
+                  
+                  </div>
                   
                   
                   
@@ -128,14 +155,14 @@
               <div class="row">
                 <div class="col-sm-6"> 
                   
-                    <form action="graph.php">
-                        <button class="bttn-fill bttn-lg bttn-primary">Choose a ticker and graph!</button>
+                    <form action="top5date.php">
+                    <button class="bttn-fill bttn-lg bttn-warning">top5date.php</button>
                     </form>
                 </div>
                 <div class="col-sm-6"> 
                   
-                    <form action="topFivePerSector.php">
-                        <button class="bttn-fill bttn-lg bttn-primary">topFivePerSector</button>
+                    <form action="graph.php">
+                        <button class="bttn-fill bttn-lg bttn-primary">Choose a ticker and graph!</button>
                     </form>
                 </div>
                 

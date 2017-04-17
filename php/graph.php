@@ -67,7 +67,7 @@
         <div class="jumbotron">
           <div class="container text-center" id="logo">
 
-              <img src="images/logo.png" height="250px">
+              <a href="../homepage.html"><img src="../images/logo.png" height="250px"></a>
 
           </div>
         </div>
@@ -123,21 +123,31 @@
             
             <div class="container-fluid bg-3 text-center">    
               <div class="row">
-                <div class="col-sm-3"> 
+                <div class="col-sm-6"> 
                   
                     <form action="top5date.php">
                     <button class="bttn-fill bttn-lg bttn-warning">top5date.php</button>
                     </form>
                 </div>
-                <div class="col-sm-3"> 
+                <div class="col-sm-6"> 
                   
-                    <button class="bttn-fill bttn-lg bttn-danger">large</button>
+                    <form action="topFivePerSector.php">
+                        <button class="bttn-fill bttn-lg bttn-primary">topFivePerSector</button>
+                    </form>
                 </div>
-                <div class="col-sm-3">
+                
+
+              </div>
+                
+                <br>
+                
+                <div class="row">
+                
+                <div class="col-sm-6">
                   
                     <button class="bttn-fill bttn-lg bttn-success">large</button>
                 </div>
-                <div class="col-sm-3"> 
+                <div class="col-sm-6"> 
                   
                     <button class="bttn-fill bttn-lg bttn-royal">large</button>
                 </div>
