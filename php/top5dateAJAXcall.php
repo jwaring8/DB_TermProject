@@ -20,6 +20,7 @@
             echo '<h2>No data for this date!</h2>';
         } else{
             echo '<table>';
+            echo '<caption>Top 5 company closing prices for a day!</caption>';
             echo '<th>ticker</th><th>company</th><th>close</th><th>date</th>';
             while($row = $result->fetch_assoc()){
                 echo '<tr>';
