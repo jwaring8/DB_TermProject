@@ -221,13 +221,14 @@ UNION
 -----------------------------------------------------------------------------------------------------------
 
 -- QUERIES DEALING WITH SEARCHING BY PRICE:
-     -- Query: Ticker within a price range (close) for a specific date
-     	
+     -- Query: Ticker within a price range (close) for a specific date range
+     
+	*************************************************
 	SELECT s.ticker, s.close
 	FROM sp500_quotes AS s
 	WHERE (s.close BETWEEN 100 AND 300)
-	      AND s.date='2014-2-4';
-
+	AND (s.date BETWEEN '2014-1-30' AND '2014-3-30');
+	*************************************************
 
      -- Query: Tickers within price range (close) for a date range
 
@@ -237,7 +238,7 @@ UNION
 	      (s.date BETWEEN '2014-1-30' AND '2014-3-30');
           
 	-- Modified Query: Select distinct ticker within price range for a date range
-    SELECT s.ticker, AVG(s.close) AS 'Average Price Across Date Range"
+    SELECT s.ticker, AVG(s.close) AS 'Average Price Across Date Range'
     FROM sp500_quotes AS s
     WHERE (s.close BETWEEN 100 AND 200) AND
 	      (s.date BETWEEN '2014-1-30' AND '2014-3-30')
