@@ -168,7 +168,7 @@
                         //prepping the query and passing it to the database
                          $stmt = $conn->prepare($sql);
                          $stmt->execute();
-                         $result = $stmt->setFetchMode(PDO::FETCH_NUM);
+                         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
                          $numRows = $stmt->rowCount();
                          $numCols = $stmt->columnCount(); //get number of columns
 
@@ -179,13 +179,16 @@
                                 //printing the results to the datbase
                          if($numRows > 0){ // run if there are rows to be fetched. Otherwise, show no results
                             echo '<table>';
-                            echo '<th>ticker</th><th>avg closing price</th><th>sector</th><th>company</th>';
+                            echo '<th>ticker</th><th>avg closing price</th><th>company</th><th>sector</th>';
                             while($row = $stmt->fetch()){ // iterate through and put tuples into table
                                 echo '<tr>'; // beginning of row.
                             // output data of each row
-                                for($i=0;$i<$numCols;$i++){ // putting table data in each row.
-                                    echo '<td>' . $row[$i] . '</td>';
-                                } // for
+                                // putting table data in each row.
+                                    echo '<td>' . $row['ticker'] . '</td>' .
+                                    '<td>' . $row['AVG(q.close)'] . '</td>' .
+                                    '<td>' . $row['company'] . '</td>' .
+                                    '<td>' . $row['sector'] . '</td>';
+                                 // for
                                 echo '</tr>'; // end of row
                             } // while
                                 echo '</table>'; //
