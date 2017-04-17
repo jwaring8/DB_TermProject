@@ -106,7 +106,7 @@
 		   GROUP BY YEAR(q.date)) AS q2)
 		WHERE YEAR(q1.date) = YEAR(q2.date);
 
-     -- Query: Top 5 best performing companies per sector for year 2017
+     -- Query: Top 5 best performing companies per sector for the year 2017 using average close price. 
 	
 
 
