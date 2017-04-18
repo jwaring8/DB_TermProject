@@ -108,7 +108,7 @@
 
      -- Query: Top 5 best performing companies per sector for year 2017
     
-    SELECT ticker, company, `AVG(q.close)` AS 'Average Closing Price for 2017', sector
+    SELECT ticker, company, `AVG(q.close),` AS 'Average Closing Price for 2017', sector
     FROM(SELECT *,
 		@sector_rank := IF(@current_sector = sector, @sector_rank + 1, 1) AS sector_rank,
 		@current_sector := sector 
