@@ -81,7 +81,7 @@ $(function() {
                   <div id="tableData"><div id="table"></div></div>                  
               </div>
             </div><br>
-   
+        </div><br>
             <div class="container-fluid bg-3 text-center">    
               <div class="row">
                 <div class="col-sm-6"> 
@@ -115,7 +115,7 @@ $(function() {
 
               </div>
             </div><br><br>
-        </div>
+        
             <footer class="container-fluid text-center">
               <p>StockOverFlow 2017</p>
             </footer>
