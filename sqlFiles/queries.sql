@@ -183,9 +183,8 @@ UNION
     FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
     WHERE YEAR(date) = 2017 AND s.sector = 'Utilities'
     GROUP BY q.ticker
-    ORDER BY AVG(q.close) DESC LIMIT 5)
-=======
-
+    ORDER BY AVG(q.close) DESC LIMIT 5);
+    
     -- Query: Show the average volume for each sector on specific date
 	
 	SELECT q.date 'Date', s.sector 'Sector', ROUND(AVG(q.volume), 2) 'Average Sector Volume'
@@ -193,31 +192,29 @@ UNION
 	WHERE q.ticker=s.ticker AND q.date='2016-3-30'
 	GROUP BY s.sector;
 
-
->>>>>>> efd1161a35d54a0838a8d96bdc3a8473d3ec9f67
 -----------------------------------------------------------------------------------------------------------
 
 -- QUERIES DEALING WITH COMPARISON BETWEEN COMPANIES:
      -- Query: Stocks with greatest change in price (close) for date range
-		SELECT q1.ticker, q2.close - q1.close AS delta
-        FROM(SELECT q.ticker, q.close
-			FROM sp500_quotes AS q
+		SELECT q1.ticker, q1.company, q2.open, q1.close, (((q1.close - q2.open) / q2.open) * 100) AS PercentGrowth
+        FROM(SELECT q.ticker, s.company, q.close
+			FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
 			WHERE (q.date = '2014-1-30')) AS q1
             INNER JOIN 
-            (SELECT q.ticker, q.close
-			FROM sp500_quotes AS q
-			WHERE (q.date = '2014-4-1')) AS q2 
+            (SELECT q.ticker, s.company, q.open
+			FROM sp500_quotes AS q JOIN sp500_stocks AS s ON q.ticker=s.ticker
+			WHERE (q.date = '2014-1-30')) AS q2 
             ON q1.ticker = q2.ticker
-		ORDER BY ABS(delta) DESC 
-        LIMIT 10;
+		ORDER BY PercentGrowth DESC 
+        LIMIT 5;
 
      -- Query: Show top 5 companies based on price (close) for date
 
 	SELECT s.ticker, s.company, q.close, q.date
 	FROM sp500_stocks AS s, sp500_quotes AS q
-	WHERE q.date='2014-1-30' AND s.ticker=q.ticker
+	WHERE q.date='2015-4-17' AND s.ticker=q.ticker
 	ORDER BY q.close DESC
-	LIMIT 5;
+	LIMIT 10;
 -----------------------------------------------------------------------------------------------------------
 
 -- QUERIES DEALING WITH SEARCHING BY PRICE:
@@ -263,19 +260,3 @@ UNION
 		WHERE (s.close BETWEEN 40 AND 75)
 		GROUP BY YEAR(s.date);
     -----------------------------------------------------------------------------------------------------------
-
-
-        
-
-
-	
-
-SELECT q.ticker, s.company, AVG(q.close), s.sector, YEAR(q.date)
- FROM sp500_quotes AS q, sp500_stocks AS s
-WHERE YEAR(q.date)='2017' AND s.sector='Information Technology'
-      AND q.ticker=s.ticker
-GROUP BY q.ticker, s.sector, YEAR(q.date)
-ORDER BY AVG(q.close) DESC
-LIMIT 5;
-
-
