@@ -37,7 +37,7 @@ $(function() {
 </script>
     </head>
     <body>
-        
+
         <div class="jumbotron">
           <div class="container text-center" id="logo">
 
@@ -46,7 +46,7 @@ $(function() {
           </div>
         </div>
         <div id="buttonArea">
-        <div class="container-fluid bg-3 text-center">    
+        <div class="container-fluid bg-3 text-center">
 <!--              <h3>The available dates you can search are 2010-12-31 to 2017-03-31!</h3><br>-->
               <div class="row" id="paragraphArea">
                     <form id="formData" action ="pricerangeAJAXcall.php" method="post">
@@ -55,9 +55,9 @@ $(function() {
                         <p>The min price is 0 and max price is 10000!</p>
                         <div style="display:inline">
                             <label for="price-min">Price-min:</label>
-                            <input type="text" name="price-min" id="price-min" value="200" min="0" max="10000">
+                            <input type="text" name="price-min" id="price-min" value="0" min="0" max="10000">
                             <label for="price-max">Price-max:</label>
-                            <input type="text" name="price-max" id="price-max" value="800" min="0" max="10000">
+                            <input type="text" name="price-max" id="price-max" value="10000" min="0" max="10000">
                         </div>
                         </div>
                     <input type="submit" data-inline="true" value="Submit">
@@ -70,55 +70,55 @@ $(function() {
                             url: frm.attr('action'),
                             data: frm.serialize(),
                             success: function (data) {
-                                $('#table').html(data); 
+                                $('#table').html(data);
                             }
                         });
 
                         ev.preventDefault();
                     });
                   </script>
-                  
-                  <div id="tableData"><div id="table"></div></div>                  
+
+                  <div id="tableData"><div id="table"></div></div>
               </div>
             </div><br>
         </div><br>
-            <div class="container-fluid bg-3 text-center">    
+            <div class="container-fluid bg-3 text-center">
               <div class="row">
-                <div class="col-sm-6"> 
-                  
+                <div class="col-sm-6">
+
                     <form action="graph.php">
                         <button class="bttn-fill bttn-lg bttn-primary">Tickerish</button>
                     </form>
                 </div>
-                <div class="col-sm-6"> 
-                  
+                <div class="col-sm-6">
+
                     <form action="topFivePerSector.php">
                         <button class="bttn-fill bttn-lg bttn-warning">Top 5, Top 5, Top 5 ... per sector</button>
                     </form>
                 </div>
               </div>
-                
+
                 <br>
-                
+
                 <div class="row">
-                
+
                 <div class="col-sm-6">
                     <form action="top5date.php">
                         <button class="bttn-fill bttn-lg bttn-success">Top 5, Top 5, Top 5</button>
                     </form>
                 </div>
-                <div class="col-sm-6"> 
+                <div class="col-sm-6">
                     <form action="bargraph.php">
                         <button class="bttn-fill bttn-lg bttn-royal">(Top 10 Closing Prices) Bargraphify</button>
-                    </form>  
+                    </form>
                 </div>
 
               </div>
             </div><br><br>
-        
+
             <footer class="container-fluid text-center">
               <p>StockOverFlow 2017</p>
             </footer>
-        </div>   
+        </div>
     </body>
 </html>
